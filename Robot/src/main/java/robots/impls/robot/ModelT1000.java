@@ -15,7 +15,7 @@ public class ModelT1000 implements Robot{
     private Leg leg;
     private Head head;
 
-    public ModelT1000(Hand hand, Head head, Leg leg) {
+    public ModelT1000(Head head, Leg leg, Hand hand) {
         this.hand = hand;
         this.leg = leg;
         this.head = head;
