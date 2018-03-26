@@ -8,17 +8,41 @@ import robots.interfaces.Robot;
 public class ModelT1000 implements Robot{
 
     private Hand hand;
+    private Leg leg;
+    private Head head;
+
+    public Hand getHand() {
+        return hand;
+    }
+
+    public void setHand(Hand hand) {
+        this.hand = hand;
+    }
+
+    public Leg getLeg() {
+        return leg;
+    }
+
+    public void setLeg(Leg leg) {
+        this.leg = leg;
+    }
+
+    public Head getHead() {
+        return head;
+    }
+
+    public void setHead(Head head) {
+        this.head = head;
+    }
 
     public ModelT1000() {
     }
-
-    private Leg leg;
-    private Head head;
 
     public ModelT1000(Head head, Leg leg, Hand hand) {
         this.hand = hand;
         this.leg = leg;
         this.head = head;
+
     }
 
     @Override

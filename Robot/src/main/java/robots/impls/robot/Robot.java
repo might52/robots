@@ -1,4 +1,4 @@
-package robots.impls;
+package robots.impls.robot;
 
 import robots.interfaces.Hand;
 import robots.interfaces.Head;

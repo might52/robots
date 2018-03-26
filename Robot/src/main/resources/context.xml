@@ -3,9 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="t1000" class="robots.impls.robot.ModelT1000">
+        <!-- Constructors -->
+
         <constructor-arg ref="toshibaHead" />
         <constructor-arg ref="sonyLeg" />
         <constructor-arg ref="sonyHand" />
+
+        <!--Setters and getters-->
+
+        <property name="hand" ref="sonyHand"  />
+        <property name="head" ref="toshibaHead"/>
+        <property name="leg" ref="toshibaLeg"/>
+
     </bean>
 
     <bean id="sonyHead" class="robots.impls.sony.SonyHead"/>
