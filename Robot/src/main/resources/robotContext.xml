@@ -13,11 +13,12 @@
 
     <import resource="sonyContext.xml"/>
     <import resource="toshibaContext.xml"/>
+    <import resource="dbcontext.xml"/>
 
     <bean id="t1000" class="robots.impls.robot.ModelT1000"
           p:hand-ref="sonyHand"
           p:head-ref="toshibaHead"
-          p:leg-ref="sonyLeg">
+          p:leg-ref="sonyLeg" depends-on="datasourceConnetion">
         <!--init-method="init"-->
         <!--destroy-method="destroy"-->
 
