@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="t1000" class="robots.impls.robot.ModelT1000">
+    <bean id="t1000" class="robots.impls.robot.ModelT1000" scope="singleton"
+          p:hand-ref="sonyHand"
+          p:head-ref="toshibaHead"
+          p:leg-ref="sonyLeg">
+
         <!-- Constructors -->
 
-        <constructor-arg ref="toshibaHead" />
-        <constructor-arg ref="sonyLeg" />
-        <constructor-arg ref="sonyHand" />
+        <!--<constructor-arg ref="toshibaHead" />-->
+        <!--<constructor-arg ref="sonyLeg" />-->
+        <!--<constructor-arg ref="sonyHand" />-->
 
         <!--Setters and getters-->
 
-        <property name="hand" ref="sonyHand"  />
-        <property name="head" ref="toshibaHead"/>
-        <property name="leg" ref="toshibaLeg"/>
+        <!--<property name="hand" ref="sonyHand"  />-->
+        <!--<property name="head" ref="toshibaHead"/>-->
+        <!--<property name="leg" ref="toshibaLeg"/>-->
 
+        <!--with type and values declaration-->
+        <constructor-arg value="silver" index="0" type="java.lang.String"/>
+        <constructor-arg value="2006" index="1" type="int"/>
+        <constructor-arg value="true" index="2" type="boolean"/>
+
+        <!--<property name="hand" ref="sonyHand"  />-->
+        <!--<property name="head" ref="toshibaHead"/>-->
+        <!--<property name="leg" ref="toshibaLeg"/>-->
+
+
+    </bean>
+    <bean id="t1000Empty" class="robots.impls.robot.ModelT1000">
+        <constructor-arg ref="toshibaHead" />
+        <constructor-arg ref="sonyLeg" />
+        <constructor-arg ref="sonyHand" />
     </bean>
 
     <bean id="sonyHead" class="robots.impls.sony.SonyHead"/>
