@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+
+    <!--In beans quotes-->
+    <!--default-init-method="init"-->
+    <!--default-destroy-method="destroy"-->
+    <!--default-lazy-init="true"-->
+
+    <import resource="sonyContext.xml"/>
+    <import resource="toshibaContext.xml"/>
+
+    <bean id="t1000" class="robots.impls.robot.ModelT1000"
+          p:hand-ref="sonyHand"
+          p:head-ref="toshibaHead"
+          p:leg-ref="sonyLeg">
+        <!--init-method="init"-->
+        <!--destroy-method="destroy"-->
+
+        <!-- Constructors -->
+
+        <!--<constructor-arg ref="toshibaHead" />-->
+        <!--<constructor-arg ref="sonyLeg" />-->
+        <!--<constructor-arg ref="sonyHand" />-->
+
+        <!--Setters and getters-->
+
+        <!--<property name="hand" ref="sonyHand"  />-->
+        <!--<property name="head" ref="toshibaHead"/>-->
+        <!--<property name="leg" ref="toshibaLeg"/>-->
+
+        <!--with type and values declaration-->
+        <constructor-arg value="silver" index="0" type="java.lang.String"/>
+        <constructor-arg value="2006" index="1" type="int"/>
+        <constructor-arg value="true" index="2" type="boolean"/>
+
+        <!--<property name="hand" ref="sonyHand"  />-->
+        <!--<property name="head" ref="toshibaHead"/>-->
+        <!--<property name="leg" ref="toshibaLeg"/>-->
+
+    </bean>
+
+    <bean id="t1000Empty" class="robots.impls.robot.ModelT1000">
+        <constructor-arg ref="toshibaHead" index="0"/>
+        <constructor-arg ref="sonyLeg" index="1"/>
+        <constructor-arg ref="sonyHand" index="2"/>
+    </bean>
+
+    <bean id="t1000Values" class="robots.impls.robot.ModelT1000"
+          p:leg-ref="sonyLeg"
+          p:head-ref="toshibaHead"
+          p:hand-ref="sonyHand"
+          c:_0="black"
+          c:_1="2009"
+          c:_2="true">
+    </bean>
+</beans>
