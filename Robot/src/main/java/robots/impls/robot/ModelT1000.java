@@ -1,11 +1,13 @@
 package robots.impls.robot;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import robots.interfaces.Hand;
 import robots.interfaces.Head;
 import robots.interfaces.Leg;
 import robots.interfaces.Robot;
 
-public class ModelT1000 implements Robot{
+public class ModelT1000 implements Robot, InitializingBean, DisposableBean{
 
     private Hand hand;
     private Leg leg;
@@ -102,4 +104,17 @@ public class ModelT1000 implements Robot{
         System.out.println("T1000 is dancing!");
     }
 
+    public void init(){
+        System.out.println("init object");
+    }
+
+    @Override
+    public void destroy(){
+        System.out.println("destroy  object");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this + " - metod init (afterPropertiesSet)");
+    }
 }
