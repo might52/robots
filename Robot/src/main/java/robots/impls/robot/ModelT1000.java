@@ -70,7 +70,6 @@ public class ModelT1000 implements Robot{
         this.hand = hand;
         this.leg = leg;
         this.head = head;
-
     }
 
     public ModelT1000(Hand hand, Leg leg, Head head, String color, int year, boolean soundEnabled) {

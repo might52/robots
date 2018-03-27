@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="t1000" class="robots.impls.robot.ModelT1000" scope="singleton"
           p:hand-ref="sonyHand"
@@ -29,12 +30,20 @@
         <!--<property name="head" ref="toshibaHead"/>-->
         <!--<property name="leg" ref="toshibaLeg"/>-->
 
-
     </bean>
     <bean id="t1000Empty" class="robots.impls.robot.ModelT1000">
-        <constructor-arg ref="toshibaHead" />
-        <constructor-arg ref="sonyLeg" />
-        <constructor-arg ref="sonyHand" />
+        <constructor-arg ref="toshibaHead" index="0"/>
+        <constructor-arg ref="sonyLeg" index="1"/>
+        <constructor-arg ref="sonyHand" index="2"/>
+    </bean>
+
+    <bean id="t1000Values" class="robots.impls.robot.ModelT1000"
+          p:leg-ref="sonyLeg"
+          p:head-ref="toshibaHead"
+          p:hand-ref="sonyHand"
+          c:_0="black"
+          c:_1="2009"
+          c:_2="true">
     </bean>
 
     <bean id="sonyHead" class="robots.impls.sony.SonyHead"/>
