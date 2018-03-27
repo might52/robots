@@ -5,8 +5,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import robots.impls.robot.ModelT1000;
 
-import javax.jws.WebParam;
-
 
 //@SpringBootApplication
 public class RobotApplication {
@@ -17,12 +15,14 @@ public class RobotApplication {
         if (obj instanceof ModelT1000){
             ModelT1000 t1000 = (ModelT1000)obj;
             t1000.dance();
-            t1000.fire();
+            t1000.action();
         }
 
+/*
         ModelT1000 t1000 = context.getBean("t1000", ModelT1000.class);
         System.out.println(t1000);
         t1000 = context.getBean("t1000", ModelT1000.class);
         System.out.println(t1000);
+*/
     }
 }

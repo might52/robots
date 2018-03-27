@@ -13,39 +13,46 @@
 
     <import resource="sonyContext.xml"/>
     <import resource="toshibaContext.xml"/>
-    <import resource="dbcontext.xml"/>
+    <import resource="dbContext.xml"/>
 
-    <bean id="t1000" class="robots.impls.robot.ModelT1000"
+    <bean id="t1000" class="robots.impls.robot.ModelT1000" depends-on="datasourceConnection"
+          parent="baseModel">
+    <!--    init-method="init"
+          destroy-method="destroy"
           p:hand-ref="sonyHand"
           p:head-ref="toshibaHead"
-          p:leg-ref="sonyLeg" depends-on="datasourceConnetion">
-        <!--init-method="init"-->
-        <!--destroy-method="destroy"-->
+          p:leg-ref="sonyLeg"
 
-        <!-- Constructors -->
+         Constructors
 
-        <!--<constructor-arg ref="toshibaHead" />-->
-        <!--<constructor-arg ref="sonyLeg" />-->
-        <!--<constructor-arg ref="sonyHand" />-->
+        <constructor-arg ref="toshibaHead" />
+        <constructor-arg ref="sonyLeg" />
+        <constructor-arg ref="sonyHand" />
 
-        <!--Setters and getters-->
+        Setters and getters
 
-        <!--<property name="hand" ref="sonyHand"  />-->
-        <!--<property name="head" ref="toshibaHead"/>-->
-        <!--<property name="leg" ref="toshibaLeg"/>-->
-
+        <property name="hand" ref="sonyHand"  />
+        <property name="head" ref="toshibaHead"/>
+        <property name="leg" ref="toshibaLeg"/>
+-->
         <!--with type and values declaration-->
-        <constructor-arg value="silver" index="0" type="java.lang.String"/>
-        <constructor-arg value="2006" index="1" type="int"/>
-        <constructor-arg value="true" index="2" type="boolean"/>
+        <constructor-arg value="silver" index="3" type="java.lang.String"/>
+        <constructor-arg value="2006" index="4" type="int"/>
+        <constructor-arg value="true" index="5" type="boolean"/>
 
-        <!--<property name="hand" ref="sonyHand"  />-->
-        <!--<property name="head" ref="toshibaHead"/>-->
-        <!--<property name="leg" ref="toshibaLeg"/>-->
+<!--        <property name="hand" ref="sonyHand"  />
+        <property name="head" ref="toshibaHead"/>
+        <property name="leg" ref="toshibaLeg"/>-->
 
     </bean>
 
-    <bean id="t1000Empty" class="robots.impls.robot.ModelT1000">
+    <bean id="baseModel" abstract="true">
+        <constructor-arg ref="sonyHand" index="0"/>
+        <constructor-arg ref="toshibaHead" index="1"/>
+        <constructor-arg ref="sonyLeg" index="2"/>
+    </bean>
+
+  <!--  <bean id="t1000Empty" class="robots.impls.robot.ModelT1000">
         <constructor-arg ref="toshibaHead" index="0"/>
         <constructor-arg ref="sonyLeg" index="1"/>
         <constructor-arg ref="sonyHand" index="2"/>
@@ -58,5 +65,5 @@
           c:_0="black"
           c:_1="2009"
           c:_2="true">
-    </bean>
+    </bean>-->
 </beans>

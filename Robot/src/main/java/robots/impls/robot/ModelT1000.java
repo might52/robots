@@ -7,11 +7,7 @@ import robots.interfaces.Head;
 import robots.interfaces.Leg;
 import robots.interfaces.Robot;
 
-public class ModelT1000 implements Robot, InitializingBean, DisposableBean{
-
-    private Hand hand;
-    private Leg leg;
-    private Head head;
+public class ModelT1000 extends BaseModel implements InitializingBean, DisposableBean {
 
     private String color;
     private int year;
@@ -41,43 +37,16 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean{
         this.soundEnabled = soundEnabled;
     }
 
-    public Hand getHand() {
-        return hand;
-    }
-
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public Leg getLeg() {
-        return leg;
-    }
-
-    public void setLeg(Leg leg) {
-        this.leg = leg;
-    }
-
-    public Head getHead() {
-        return head;
-    }
-
-    public void setHead(Head head) {
-        this.head = head;
-    }
 
     public ModelT1000() {
     }
 
-    public ModelT1000(Head head, Leg leg, Hand hand) {
-        this.hand = hand;
-        this.leg = leg;
-        this.head = head;
+    public ModelT1000(Hand hand, Head head, Leg leg) {
+        super(hand, head, leg);
     }
 
-    public ModelT1000(Hand hand, Leg leg, Head head, String color, int year, boolean soundEnabled) {
-        this.hand = hand;
-        this.leg = leg;
-        this.head = head;
+    public ModelT1000(Hand hand, Head head, Leg leg, String color, int year, boolean soundEnabled) {
+        super(hand, head, leg);
         this.color = color;
         this.year = year;
         this.soundEnabled = soundEnabled;
@@ -90,13 +59,13 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean{
     }
 
     @Override
-    public void fire() {
-        head.calc();
-        hand.catchSomething();
-        leg.go();
-        System.out.println("color: "  + getColor());
-        System.out.println("year: "  + getYear());
-        System.out.println("soundEnabled: "  + isSoundEnabled());
+    public void action() {
+        getHead().calc();
+        getHand().catchSomething();
+        getLeg().go();
+        System.out.println("color: " + getColor());
+        System.out.println("year: " + getYear());
+        System.out.println("soundEnabled: " + isSoundEnabled());
     }
 
     @Override
@@ -104,12 +73,9 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean{
         System.out.println("T1000 is dancing!");
     }
 
-    public void init(){
-        System.out.println("init object");
-    }
 
     @Override
-    public void destroy(){
+    public void destroy() {
         System.out.println("destroy  object");
     }
 
