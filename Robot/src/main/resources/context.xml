@@ -2,11 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
        default-lazy-init="true">
-
     <!-- for all objects -->
     <!--<bean class="robots.impls.MyBeanPostProcessor"/>-->
     <import resource="robotContext.xml"/>
+    <bean id="t1000Conveyer" class="robots.impls.robot.T100Conveyer">
+        <!--For abstraction method-->
+        <lookup-method name="createRobot" bean="t1000"/>
+    </bean>
+    <!--<context:property-override location="log4j.properties"/>-->
 </beans>
