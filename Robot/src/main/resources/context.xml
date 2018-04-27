@@ -14,29 +14,40 @@
     </bean>
     <!--<context:property-override location="log4j.properties"/>-->
     <bean id="T1000Pool" class="robots.impls.pool.T1000Pool">
-        <!--<property name="robotCollection">-->
-            <!--<list>-->
-                <!--<ref bean="t1000"/>-->
-                <!--<bean class="robots.impls.robot.ModelT1000" parent="baseModel">-->
-                    <!--<constructor-arg value="gold" index="3" type="java.lang.String"/>-->
-                    <!--<constructor-arg value="2007" index="4" type="int"/>-->
-                    <!--<constructor-arg value="false" index="5" type="boolean"/>-->
-                <!--</bean>-->
-            <!--</list>-->
-        <!--</property>-->
-        <constructor-arg name="robotCollection">
-            <map>
-                <entry key="2005" value-ref="t1000"/>
-                <entry key="2006" value-ref="t1000"/>
-                <entry key="2007">
-                    <bean class="robots.impls.robot.ModelT1000" parent="baseModel">
-                        <constructor-arg value="gold" index="3" type="java.lang.String"/>
-                        <constructor-arg value="2007" index="4" type="int"/>
-                        <constructor-arg value="false" index="5" type="boolean"/>
-                    </bean>
-                </entry>
-            </map>
-        </constructor-arg>
+        <property name="robotCollection">
+            <list>
+                <ref bean="t1000"/>
+                <bean class="robots.impls.robot.ModelT1000" parent="baseModel">
+                    <constructor-arg value="gold" index="3" type="java.lang.String"/>
+                    <constructor-arg value="2007" index="4" type="int"/>
+                    <constructor-arg value="false" index="5" type="boolean"/>
+                </bean>
+                <bean class="robots.impls.robot.ModelT1000" parent="baseModel">
+                    <constructor-arg value="gold" index="3" type="java.lang.String"/>
+                    <constructor-arg value="2008" index="4" type="int"/>
+                    <constructor-arg value="true" index="5" type="boolean"/>
+                </bean>
+            </list>
+        </property>
+        <!--<constructor-arg name="robotCollection">-->
+            <!--<map>-->
+                <!--<entry key="2005" value-ref="t1000"/>-->
+                <!--<entry key="2006" value-ref="t1000"/>-->
+                <!--<entry key="2007">-->
+                    <!--<bean class="robots.impls.robot.ModelT1000" parent="baseModel">-->
+                        <!--<constructor-arg value="gold" index="3" type="java.lang.String"/>-->
+                        <!--<constructor-arg value="2007" index="4" type="int"/>-->
+                        <!--<constructor-arg value="false" index="5" type="boolean"/>-->
+                    <!--</bean>-->
+                <!--</entry>-->
+            <!--</map>-->
+        <!--</constructor-arg>-->
+    </bean>
+
+    <bean id="t1000GoldenPool" class="robots.impls.pool.T1000Pool">
+        <property name="robotCollection"
+                  value="#{T1000Pool.robotCollection.?[getColor().toUpperCase() eq 'GOLD']}">
+        </property>
     </bean>
 
 </beans>

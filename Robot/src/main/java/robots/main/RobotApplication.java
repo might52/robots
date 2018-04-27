@@ -8,13 +8,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import robots.impls.pool.T1000Pool;
-import robots.impls.robot.ModelT1000;
-import robots.interfaces.Robot;
-import robots.interfaces.RobotConveyer;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
 
 
 //@SpringBootApplication
@@ -29,7 +22,7 @@ public class RobotApplication {
         if (obj instanceof ModelT1000){
             ModelT1000 t1000 = (ModelT1000)obj;
             t1000.dance();
-            t1000.action();
+            t1000.beginShow();
         }
 
         Class myObjectClass = ModelT1000.class;
@@ -61,9 +54,17 @@ public class RobotApplication {
         logger.info("terminator3: " + terminator3);
 */
         //endregion
-
+        //region Collections
+/*
         logger.info("\n\nCollection in spring\n");
         T1000Pool t1000Pool = context.getBean("T1000Pool", T1000Pool.class);
-        t1000Pool.action();
+        t1000Pool.beginShow();
+*/
+        //endregion
+        //region SpEL
+        System.out.println("SpEL");
+        T1000Pool t1000GoldenPool1 = context.getBean("t1000GoldenPool", T1000Pool.class);
+        t1000GoldenPool1.beginShow();
+        //endregion
     }
 }

@@ -8,21 +8,24 @@ import java.util.Collection;
 import java.util.Map;
 
 public class T1000Pool implements RobotPool {
-    private Map<String, Robot> robotCollection;
+//    private Map<String, Robot> robotCollection;
+    private Collection<Robot> robotCollection;
 
-    public T1000Pool(Map<String, Robot> robotCollection) {
+    public T1000Pool() {
+    }
+
+    public void setRobotCollection(Collection<Robot> robotCollection) {
         this.robotCollection = robotCollection;
     }
 
     @Override
-    public Map<String,Robot> getRobotCollection() {
+    public Collection<Robot> getRobotCollection() {
         return robotCollection;
     }
 
-    public void action(){
-        for (Map.Entry<String,Robot> robot: robotCollection.entrySet()) {
-            System.out.println("robot key: " + robot.getKey());
-            robot.getValue().action();
+    public void beginShow(){
+        for (Robot robot: robotCollection) {
+            robot.action();
             System.out.println("");
         }
     }
