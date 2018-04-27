@@ -39,7 +39,7 @@
         <constructor-arg value="silver" index="3" type="java.lang.String"/>
         <constructor-arg value="2006" index="4" type="int"/>
         <constructor-arg value="true" index="5" type="boolean"/>
-        <replaced-method name="action" replacer="actionReplacer"/>
+        <!--<replaced-method name="action" replacer="actionReplacer"/>-->
 <!--        <property name="hand" ref="sonyHand"  />
         <property name="head" ref="toshibaHead"/>
         <property name="leg" ref="toshibaLeg"/>-->

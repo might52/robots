@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import robots.impls.pool.T1000Pool;
 import robots.impls.robot.ModelT1000;
 import robots.interfaces.Robot;
 import robots.interfaces.RobotConveyer;
@@ -22,6 +23,8 @@ public class RobotApplication {
     public static void main(String[] args) {
         //SpringApplication.run(RobotApplication.class, args);
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        //region General
+/*
         Object obj = context.getBean("t1000");
         if (obj instanceof ModelT1000){
             ModelT1000 t1000 = (ModelT1000)obj;
@@ -38,12 +41,15 @@ public class RobotApplication {
         for (Field field : fields) {
             System.out.println("field = " + field.getName());
         }
-/*
+
         ModelT1000 t1000 = context.getBean("t1000", ModelT1000.class);
         System.out.println(t1000);
         t1000 = context.getBean("t1000", ModelT1000.class);
         System.out.println(t1000);
 */
+        //endregion
+        //region Conveyer
+/*
         RobotConveyer t1000Conveyer = context.getBean("t1000Conveyer", RobotConveyer.class);
 
         Robot terminator1 = t1000Conveyer.createRobot();
@@ -53,5 +59,11 @@ public class RobotApplication {
         logger.info("terminator1: " + terminator1);
         logger.info("terminator2: " + terminator2);
         logger.info("terminator3: " + terminator3);
+*/
+        //endregion
+
+        logger.info("\n\nCollection in spring\n");
+        T1000Pool t1000Pool = context.getBean("T1000Pool", T1000Pool.class);
+        t1000Pool.action();
     }
 }

@@ -37,7 +37,6 @@ public class ModelT1000 extends BaseModel implements InitializingBean, Disposabl
         this.soundEnabled = soundEnabled;
     }
 
-
     public ModelT1000() {
     }
 
@@ -72,7 +71,6 @@ public class ModelT1000 extends BaseModel implements InitializingBean, Disposabl
     public void dance() {
         System.out.println("T1000 is dancing!");
     }
-
 
     @Override
     public void destroy() {
