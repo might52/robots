@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+       default-lazy-init="true">
+    <!-- for all objects -->
+    <!--<bean class="robots.impls.MyBeanPostProcessor"/>-->
+    <import resource="robotContext.xml"/>
+    <bean id="t1000Conveyer" class="robots.impls.robot.T100Conveyer">
+        <!--For abstraction method-->
+        <lookup-method name="createRobot" bean="t1000"/>
+    </bean>
+    <!--<context:property-override location="log4j.properties"/>-->
+    <util:list id="robotCollection">
+        <ref bean="t1000"/>
+        <bean class="robots.impls.robot.ModelT1000" parent="baseModel">
+            <constructor-arg value="gold" index="3" type="java.lang.String"/>
+            <constructor-arg value="2007" index="4" type="int"/>
+            <constructor-arg value="false" index="5" type="boolean"/>
+        </bean>
+        <bean class="robots.impls.robot.ModelT1000" parent="baseModel">
+            <constructor-arg value="gold" index="3" type="java.lang.String"/>
+            <constructor-arg value="2008" index="4" type="int"/>
+            <constructor-arg value="true" index="5" type="boolean"/>
+        </bean>
+    </util:list>
+    <bean id="T1000Pool" class="robots.impls.pool.T1000Pool" autowire="byName"/>
+
+    <bean id="t1000GoldenPool" class="robots.impls.pool.T1000Pool">
+        <property name="robotCollection"
+                  value="#{T1000Pool.robotCollection.?[getColor().toUpperCase() eq 'GOLD']}">
+        </property>
+    </bean>
+
+</beans>

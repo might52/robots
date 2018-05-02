@@ -11,6 +11,7 @@
     <modules>
         <module>root</module>
         <module>Robot</module>
+        <module>Robot_Autowire</module>
     </modules>
 
     <parent>
