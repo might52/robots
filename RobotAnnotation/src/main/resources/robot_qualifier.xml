@@ -11,18 +11,14 @@
     </bean>
 
     <bean class="robots_annotation.impls.robot.ModelT1000">
-        <qualifier type="custom_annotation.interfaces.RobotQualifier">
-            <attribute key="genre" value="redRobot"/>
-            <attribute key="format" value="RED"/>
-        </qualifier>
+        <meta key="genre" value="redRobot"/>
+        <meta key="format" value="RED"/>
         <property name="color" value="red"/>
     </bean>
 
     <bean class="robots_annotation.impls.robot.ModelT1000">
-        <qualifier type="custom_annotation.interfaces.RobotQualifier">
-            <attribute key="genre" value="blueRobot"/>
-            <attribute key="format" value="BLUE"/>
-        </qualifier>
+        <meta key="genre" value="blueRobot"/>
+        <meta key="format" value="BLUE"/>
         <property name="color" value="blue"/>
     </bean>
 
