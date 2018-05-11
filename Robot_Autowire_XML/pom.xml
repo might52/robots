@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Robot</artifactId>
+    <artifactId>Robot_Autowire_XML</artifactId>
 
 
 </project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="robots_annotation.impls.robot.ModelT1000">
+        <qualifier type="custom_annotation.interfaces.RobotQualifier">
+            <attribute key="genre" value="greenRobot"/>
+            <attribute key="format" value="GREEN"/>
+        </qualifier>
+        <property name="color" value="green"/>
+    </bean>
+
+    <bean class="robots_annotation.impls.robot.ModelT1000">
+        <qualifier type="custom_annotation.interfaces.RobotQualifier">
+            <attribute key="genre" value="redRobot"/>
+            <attribute key="format" value="RED"/>
+        </qualifier>
+        <property name="color" value="red"/>
+    </bean>
+
+    <bean class="robots_annotation.impls.robot.ModelT1000">
+        <qualifier type="custom_annotation.interfaces.RobotQualifier">
+            <attribute key="genre" value="blueRobot"/>
+            <attribute key="format" value="BLUE"/>
+        </qualifier>
+        <property name="color" value="blue"/>
+    </bean>
+
+    <bean class="robots_annotation.impls.robot.ModelT1000">
+        <qualifier type="custom_annotation.interfaces.RobotQualifier">
+            <attribute key="genre" value="goldenRobot"/>
+            <attribute key="format" value="GOLDEN"/>
+        </qualifier>
+        <property name="color" value="golden"/>
+    </bean>
+
+    <bean id="robotQualifier" class="robots_annotation.impls.pool.T1000Pool"/>
+</beans>

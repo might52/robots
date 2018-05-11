@@ -14,6 +14,7 @@
     <import resource="sonyContext.xml"/>
     <import resource="toshibaContext.xml"/>
     <import resource="dbContext.xml"/>
+    <bean name="actionReplacer" class="robots.impls.ActionReplacer"/>
     <bean id="t1000" class="robots.impls.robot.ModelT1000" depends-on="datasourceConnection"
           parent="baseModel" scope="prototype">
     <!--    init-method="init"

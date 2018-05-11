@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+    <bean id="toshibaHead1" class="robots_annotation.impls.toshiba.ToshibaHead">
+        <property name="color" value="golden"/>
+        <qualifier value="toshibaGoldenHead"></qualifier>
+    </bean>
+    <bean id="toshibaHead2" class="robots_annotation.impls.toshiba.ToshibaHead">
+        <property name="color" value="bronze"/>
+        <qualifier value="toshibaBronzeHead"></qualifier>
+    </bean>    <bean id="toshibaHand" class="robots_annotation.impls.toshiba.ToshibaHand"/>
+    <bean id="toshibaLeg" class="robots_annotation.impls.toshiba.ToshibaLeg"/>
+</beans>

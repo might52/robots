@@ -11,7 +11,8 @@
     <modules>
         <module>root</module>
         <module>Robot</module>
-        <module>Robot_Autowire</module>
+        <module>Robot_Autowire_XML</module>
+        <module>RobotAnnotation</module>
     </modules>
 
     <parent>

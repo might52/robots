@@ -1,0 +1,11 @@
+<loggers>
+    <logger name="org.hibernate">
+        <level value="OFF"/>
+    </logger>
+    <logger name="org.springframework.core.env">
+        <level value="OFF"/>
+    </logger>
+    <logger name="org.apache.commons">
+        <level value="OFF"/>
+    </logger>
+</loggers>
